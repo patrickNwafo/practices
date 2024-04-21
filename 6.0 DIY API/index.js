@@ -9,12 +9,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 //1. GET a random joke
 app.get("/random", (req, res) => {
-  const randomIndex = Math.floor(Math.random * jokes.length);
+  const randomIndex = Math.floor(Math.random() * jokes.length);
   res.json(jokes[randomIndex]);
 })
 
 //2. GET a specific joke
-app.get("/jokes:id", (req, res) => {
+app.get("/jokes/:id", (req, res) => {
   const id = parseInt(req.params.id);
   const foundJoke = jokes.find((joke) => joke.id === id);
   res.json(foundJoke);
